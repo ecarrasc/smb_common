@@ -49,33 +49,10 @@ def generate_launch_description():
         parameters=[{"use_sim_time": True}],
     )
 
-    gmsf_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution([
-                FindPackageShare("smb_estimator_graph_ros2"),
-                "launch",
-                "smb_estimator_graph_sim.launch.py"
-            ])
-        ),
-    )
-
-    open3d_slam_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution([
-                FindPackageShare("open3d_slam_ros"),
-                "launch",
-                "summer_school_slam_robot_launch.py"
-            ])
-        ),
-        launch_arguments={
-            "use_sim_time": "true"
-        }.items(),
-    )
-
     smb_ui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([
-                FindPackageShare("smb_common"),
+                FindPackageShare("smb_ui"),
                 "launch",
                 "smb_ui_sim.launch.py"
             ])
@@ -97,7 +74,5 @@ def generate_launch_description():
         twist_mux,
         kinematics_controller,
         low_level_controller,
-        gmsf_launch,
-        #open3d_slam_launch,
         smb_ui
     ])

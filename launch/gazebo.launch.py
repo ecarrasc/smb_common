@@ -53,8 +53,10 @@ def generate_launch_description():
             "gz_args": [
                 IfElseSubstitution(LaunchConfiguration("paused"), if_value="", else_value="-r "),
                 IfElseSubstitution(LaunchConfiguration("verbose"), if_value="-v4 ", else_value=""),
+                #'--render-engine ogre ', # Add this line only if working within VirtualBox and with the option 3D acceleration set
                 # LaunchConfiguration("world_file"),
-                world_file_path,
+                world_file_path
+                
             ],
             "on_exit_shutdown": "true",
         }.items(),
@@ -75,7 +77,7 @@ def generate_launch_description():
     )
 
     ros_gz_bridge_config = PathJoinSubstitution([
-        FindPackageShare("smb_gazebo"), "config", "smb_gz_bridge.yaml"
+        FindPackageShare("smb_common"), "config", "smb_gz_bridge.yaml"
     ])
 
     ros_gz_bridge = IncludeLaunchDescription(
