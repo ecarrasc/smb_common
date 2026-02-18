@@ -52,7 +52,7 @@ def generate_launch_description():
     smb_ui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([
-                FindPackageShare("smb_ui"),
+                FindPackageShare("smb_common"),
                 "launch",
                 "smb_ui_sim.launch.py"
             ])

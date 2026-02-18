@@ -8,9 +8,9 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     rviz_config_path = os.path.join(
-        get_package_share_directory('smb_ui'),
+        get_package_share_directory('smb_common'),
         'rviz',
-        'smb_sim.rviz'
+        'smb_basic.rviz'
     )
 
     # Declare the launch argument
