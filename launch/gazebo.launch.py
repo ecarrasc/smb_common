@@ -21,7 +21,7 @@ def generate_launch_description():
     declared_arguments = [
         DeclareLaunchArgument(
             "world_file",
-            default_value="empty.world",
+            default_value="playground.world",
             description="Path to the world file",
         ),
         DeclareLaunchArgument("x", default_value="0.0"),

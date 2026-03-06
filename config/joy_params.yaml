@@ -1,0 +1,21 @@
+teleop_twist_joy_node:
+  ros__parameters:
+    # Axis mapping (use 'x' for linear X, 'y' for linear Y, 'yaw' for angular Z)
+    axis_linear:
+      x: 1  # Left stick vertical (forward/backward)
+    axis_angular:
+      yaw: 0  # Right stick horizontal (turn left/right)
+    
+    # Speed scaling (m/s for linear, rad/s for angular)
+    scale_linear:
+      x: 0.7
+    scale_linear_turbo:
+      x: 1.5
+    scale_angular:
+      yaw: 0.4
+    scale_angular_turbo:
+      yaw: 1.0
+
+    # Enable buttons (use button index from /joy topic)
+    enable_button: 4    # Left bumper (LB)
+    enable_turbo_button: 7  # Right trigger (RT)
