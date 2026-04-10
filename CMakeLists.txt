@@ -17,7 +17,7 @@ add_executable(hello src/hello_world.cpp)
 ament_target_dependencies(hello rclcpp std_msgs)
 
 install(
-  DIRECTORY launch config rviz DESTINATION share/${PROJECT_NAME}
+  DIRECTORY launch config rviz data DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)

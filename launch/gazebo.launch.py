@@ -21,7 +21,7 @@ def generate_launch_description():
     declared_arguments = [
         DeclareLaunchArgument(
             "world_file",
-            default_value="playground.world",
+            default_value="arena3.world",
             description="Path to the world file",
         ),
         DeclareLaunchArgument("x", default_value="0.0"),
@@ -89,6 +89,7 @@ def generate_launch_description():
         launch_arguments={
             "bridge_name": "ros_gz_bridge",
             "config_file": ros_gz_bridge_config,
+            "use_sim_time": "true",
         }.items(),
     )
 
