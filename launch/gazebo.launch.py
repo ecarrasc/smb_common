@@ -10,7 +10,13 @@ from launch.substitutions import (
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
+from ament_index_python.packages import get_package_share_directory
+import os
+import yaml
+
 def generate_launch_description():
+
+    use_sim_time = LaunchConfiguration("use_sim_time")
     
     world_file_path = PathJoinSubstitution([
         FindPackageShare("smb_gazebo"),
@@ -59,6 +65,7 @@ def generate_launch_description():
                 
             ],
             "on_exit_shutdown": "true",
+            "use_sim_time": use_sim_time,
         }.items(),
     )
 
@@ -89,9 +96,11 @@ def generate_launch_description():
         launch_arguments={
             "bridge_name": "ros_gz_bridge",
             "config_file": ros_gz_bridge_config,
-            "use_sim_time": "true",
+            "use_sim_time": use_sim_time,
         }.items(),
     )
+
+    
 
     return LaunchDescription(
         declared_arguments
